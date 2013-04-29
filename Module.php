@@ -1,6 +1,6 @@
 <?php
 
-namespace GoalioForgotPasswordDoctrineORM;
+namespace GoalioRememberMeDoctrineORM;
 
 use Doctrine\ORM\Mapping\Driver\XmlDriver;
 use ZfcUser\Module as ZfcUser;
