@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
+                  http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+
+    <mapped-superclass name="GoalioRememberMe\Entity\RememberMe" table="user_remember_me">
+
+
+        <field name="sid" type="string" length="16" />        
+        <field name="token" type="string" length="16" />
+        <field name="userId" type="integer" column="user_id" />
+        
+        <unique-constraints>
+        	<unique-constraint columns="sid,token,user_id" name="user_remember_me" />
+    	</unique-constraints>
+
+    </mapped-superclass>
+
+</doctrine-mapping>
