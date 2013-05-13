@@ -1,6 +1,6 @@
 <?php
 
-namespace GoalioRembmerMeDoctrineORM\Options;
+namespace GoalioRememberMeDoctrineORM\Options;
 
 use GoalioRememberMe\Options\ModuleOptions as BaseModuleOptions;
 
