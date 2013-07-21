@@ -6,10 +6,9 @@
 
     <mapped-superclass name="GoalioRememberMe\Entity\RememberMe" table="user_remember_me">
 
-
-        <field name="sid" type="string" length="16" />        
-        <field name="token" type="string" length="16" />
-        <field name="userId" type="integer" column="user_id" />
+        <id name="sid" type="string" />
+        <id name="token" type="string" />
+        <id name="user_id" type="integer" />
         
         <unique-constraints>
         	<unique-constraint columns="sid,token,user_id" name="user_remember_me" />

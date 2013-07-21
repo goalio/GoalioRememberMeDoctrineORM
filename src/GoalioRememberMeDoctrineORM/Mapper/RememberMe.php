@@ -28,13 +28,13 @@ class RememberMe extends GoalioRememberMeMapper
     public function findById($userId)
     {
         $er = $this->em->getRepository($this->options->getRememberMeEntityClass());
-        return $er->findBy(array('user' => $userId));
+        return $er->findBy(array('user_id' => $userId));
     }
 
     public function findByIdSerie($userId, $serieId)
     {
         $er = $this->em->getRepository($this->options->getRememberMeEntityClass());
-        return $er->findOneBy(array('user' => $userId, 'sid' => $serieId));
+        return $er->findOneBy(array('user_id' => $userId, 'sid' => $serieId));
     }
 
     public function updateSerie($entity)
@@ -55,7 +55,7 @@ class RememberMe extends GoalioRememberMeMapper
 
     public function removeAll($userId)
     {
-        $dql = sprintf("DELETE %s u WHERE u.user = %s", $this->options->getRememberMeEntityClass(), $userId);
+        $dql = sprintf("DELETE %s u WHERE u.user_id = %s", $this->options->getRememberMeEntityClass(), $userId);
         $query = $this->em->createQuery($dql);
         $query->getResult();
     }
@@ -68,7 +68,7 @@ class RememberMe extends GoalioRememberMeMapper
 
     public function removeSerie($userId, $serieId)
     {
-        $dql = sprintf("DELETE %s u WHERE u.user = %s AND u.sid = '%s'", $this->options->getRememberMeEntityClass(), $userId, $serieId);
+        $dql = sprintf("DELETE %s u WHERE u.user_id = %s AND u.sid = '%s'", $this->options->getRememberMeEntityClass(), $userId, $serieId);
         $query = $this->em->createQuery($dql);
         $query->getResult();
     }
