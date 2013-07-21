@@ -9,7 +9,7 @@ return array(
 
             'orm_default' => array(
                 'drivers' => array(
-                    'GoalioRememberMeDoctrineORM\Entity'  => 'goaliorememberme_entity'
+                    'GoalioRememberMe\Entity'  => 'goaliorememberme_entity'
                 )
             )
         )
