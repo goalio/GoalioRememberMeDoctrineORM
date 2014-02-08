@@ -10,7 +10,7 @@ class RememberMe extends EntityRepository {
     {
         $qb = $this->getEntityManager()->createQueryBuilder();
         $qb->delete($this->_entityName,'r')
-            ->where('r.uid = :uid')
+            ->where('r.user_id = :uid')
             ->setParameter('uid', $uid);
         return $qb->getQuery()->getSingleScalarResult();
     }
@@ -19,7 +19,7 @@ class RememberMe extends EntityRepository {
     {
         $qb = $this->getEntityManager()->createQueryBuilder();
         $qb->delete($this->_entityName,'r')
-            ->where('r.uid = :uid')
+            ->where('r.user_id = :uid')
             ->andWhere('r.sid = :sid')
             ->setParameter('uid', $uid)
             ->setParameter('sid', $sid);
