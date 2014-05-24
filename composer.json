@@ -15,7 +15,7 @@
     ],
     "require": {
         "php": ">=5.3.3",
-        "goalio/goalio-rememberme": "0.*",
+        "goalio/goalio-rememberme": "1.*",
         "doctrine/doctrine-orm-module": "0.*"
     },
     "autoload": {
