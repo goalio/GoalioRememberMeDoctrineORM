@@ -55,14 +55,27 @@ class RememberMe extends GoalioRememberMeMapper
 
     public function removeAll($userId)
     {
-        $er = $this->em->getRepository($this->options->getRememberMeEntityClass());
-        return $er->deleteByUid($userId);
+        $qb = $this->em->createQueryBuilder();
+    	$query = $qb->delete($this->options->getRememberMeEntityClass(), 'rm')
+			->where('rm.user_id = :user_id')
+			->setParameter('user_id', $userId)
+			->getQuery();
+    	return $query->execute();
     }
 
     public function removeSerie($userId, $serieId)
     {
-        $er = $this->em->getRepository($this->options->getRememberMeEntityClass());
-        return $er->deleteByUidAndSid($userId,$serieId);
+        $qb = $this->em->createQueryBuilder();
+    	$query = $qb->delete($this->options->getRememberMeEntityClass(), 'rm')
+			->where('rm.user_id = :user_id')
+			->andWhere('rm.sid = :serie_id')
+			->setParameters(array(
+					'user_id' => $userId,
+					'serie_id' => $serieId
+			))
+			->getQuery();
+			
+		return $query->execute();
     }
 
     public function remove($entity)
